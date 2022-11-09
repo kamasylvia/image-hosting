@@ -10,19 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
     git config --global user.email "$(EMAIL)"
     git config --global user.name "$(USERNAME)"
-
   displayName: 'Run a multi-line script'
 
 - task: mirror-git-repository-vsts-task@1
   inputs:
     sourceGitRepositoryUri: '$(Build.Repository.Uri)'
-    destinationGitRepositoryUri: 'https://github.com/kamasylvia/hexo-posts.git'
+    destinationGitRepositoryUri: 'https://kamasylvia.visualstudio.com/Kamasylvia/_git/image-hosting'
     destinationGitRepositoryPersonalAccessToken: '$(PERSONAL_ACCESS_TOKEN)'
